@@ -14,8 +14,22 @@ repositories {
     mavenLocal()
 }
 
+task buildJar(type: Jar) {
+    classifier = 'all'
+    baseName = 'botcaptcha-1.0.0-SNAPSHOT'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+            {
+                exclude "META-INF/*.SF"
+                exclude "META-INF/*.DSA"
+                exclude "META-INF/*.RSA"
+            }
+    with jar
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.8.8'
     compile group: 'org.mongodb', name: 'mongodb-driver', version: '3.6.3'
 }

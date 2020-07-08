@@ -31,13 +31,9 @@ public class VerifyGuiProcess extends VerifyProcess {
             inventory.setItem(i, glass);
         }
 
-        inventory.setItem(this.generateSlot(), new ItemBuilder(Material.CHEST).setDisplayName(BotCaptchaPlugin.getPlugin().getPluginConfig().getMessage("gui.itemName"))
+        inventory.setItem(new Random().nextInt(25), new ItemBuilder(Material.CHEST).setDisplayName(BotCaptchaPlugin.getPlugin().getPluginConfig().getMessage("gui.itemName"))
                 .setLore(BotCaptchaPlugin.getPlugin().getPluginConfig().getStringList("gui.itemLore")).build());
 
         player.openInventory(inventory);
-    }
-
-    private int generateSlot() {
-        return new Random().nextInt(26);
     }
 }

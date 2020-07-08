@@ -59,7 +59,7 @@ public class SqLiteDatabase extends Database {
     public boolean isVerified(String uuid) {
         try {
             final ResultSet resultSet = this.query("SELECT * FROM " + this.configuration.getString("database.mySql.tableName") +
-                    "WHERE UUID='" + uuid + "'");
+                    " WHERE UUID='" + uuid + "'");
             if (resultSet.next()) {
                 return resultSet.getString("UUID") != null;
             }

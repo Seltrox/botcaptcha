@@ -27,9 +27,11 @@ public class BotCaptchaPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        plugin = this;
+
         this.saveDefaultConfig();
         this.pluginConfig = new PluginConfig();
-        
+
         this.database = DatabaseHelper.getDatabase();
         this.database.connect();
 
@@ -52,10 +54,7 @@ public class BotCaptchaPlugin extends JavaPlugin {
         return pluginConfig;
     }
 
-    public static synchronized BotCaptchaPlugin getPlugin() {
-        if (plugin == null) {
-            plugin = new BotCaptchaPlugin();
-        }
+    public static BotCaptchaPlugin getPlugin() {
         return plugin;
     }
 }

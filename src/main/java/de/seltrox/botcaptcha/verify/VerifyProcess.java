@@ -34,7 +34,7 @@ public abstract class VerifyProcess {
     public void onComplete(Player player) {
         if (this.task != null) this.task.cancel();
         player.sendMessage(BotCaptchaPlugin.getPlugin().getPluginConfig().getMessage("verifyComplete"));
-        player.playSound(player.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 1, 1);
+        player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
         ProcessHelper.removeProcess(player);
         BotCaptchaPlugin.getPlugin().getDatabase().addVerify(player.getUniqueId().toString());
     }
