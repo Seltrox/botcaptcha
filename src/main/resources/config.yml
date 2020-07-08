@@ -10,14 +10,23 @@
 prefix: "&8┃ &bCaptcha &7×"
 policyWebsite: "https://mywebsite.com/privacy"
 
-# The timeout is specified in seconds
+# The timeout is specified in seconds. Use -1 for no time limit
 timeout: 30
 
 # Employable types: GUI, CHAT
 type: "GUI"
 
 verifyComplete: "%prefix% &7You have been verified!"
-verifyTimeout: "%prefix% &7Timeout!"
+verifyTimeoutKick:
+  - "%prefix% &7You've been kicked!"
+  - "%prefix% &7Reason: &bTimeout!"
+  - "%prefix% &7Please try again"
+
+verifyIncorrectKick:
+  - "%prefix% &7You've been kicked!"
+  - "%prefix% &7Reason: &bIncorrect input!"
+  - "%prefix% &7Please try again"
+
 verifyChatMessage: "%prefix% &7Please confirm that you're not a bot and accept the privacy policy(%policyWebsite%) by entering the code below"
 verifyChatCodeMessage: "%prefix% &7Your code: &b%code%"
 
@@ -39,7 +48,7 @@ database:
     password: "YourPassword"
     tableName: "CaptchaVerifications"
   sqlite:
-    path: "../database/database.sqlite"
+    path: "../database/botcaptcha.sqlite"
   mongoDb:
     host: "localhost"
     port: 27017
