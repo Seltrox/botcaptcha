@@ -1,0 +1,4 @@
+name: BotCaptcha
+version: 1.0.0-SNAPSHOT
+author: Seltrox
+main: de.seltrox.botcaptcha.BotCaptchaPlugin

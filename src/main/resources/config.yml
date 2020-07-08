@@ -1,0 +1,49 @@
+#
+#  ____            _      ____                   _            _
+# | __ )    ___   | |_   / ___|   __ _   _ __   | |_    ___  | |__     __ _
+# |  _ \   / _ \  | __| | |      / _` | | '_ \  | __|  / __| | '_ \   / _` |
+# | |_) | | (_) | | |_  | |___  | (_| | | |_) | | |_  | (__  | | | | | (_| |
+# |____/   \___/   \__|  \____|  \__,_| | .__/   \__|  \___| |_| |_|  \__,_|
+#                                       |_|
+#                                            published on 𝕎𝕖𝕃𝕠𝕧𝕖𝕆𝕡𝕖𝕟𝕊𝕠𝕦𝕣𝕔𝕖ℙ𝕝𝕦𝕘𝕚𝕟𝕤
+
+prefix: "&8┃ &bCaptcha &7×"
+policyWebsite: "https://mywebsite.com/privacy"
+
+# The timeout is specified in seconds
+timeout: 30
+
+# Employable types: GUI, CHAT
+type: "GUI"
+
+verifyComplete: "%prefix% &7You have been verified!"
+verifyTimeout: "%prefix% &7Timeout!"
+verifyChatMessage: "%prefix% &7Please confirm that you're not a bot and accept the privacy policy(%policyWebsite%) by entering the code below"
+verifyChatCodeMessage: "%prefix% &7Your code: &b%code%"
+
+gui:
+  inventoryName: "&8× &bVerify"
+  itemName: "&8× &bI'm not a bot!"
+  itemLore:
+    - ""
+    - "&8× &7I also confirm the privacy policy (%policyWebsite%)"
+    - ""
+
+database:
+  # Employable types: MySQL, SQLite, MongoDB
+  type: "MySQL"
+  mySql:
+    host: "localhost"
+    database: "YourDatabase"
+    username: "YourUsername"
+    password: "YourPassword"
+    tableName: "CaptchaVerifications"
+  sqlite:
+    path: "../database/database.sqlite"
+  mongoDb:
+    host: "localhost"
+    port: 27017
+    username: "YourUsername"
+    password: "YourPassword"
+    database: "YourDatabase"
+    collectionName: "CaptchaVerifications"
